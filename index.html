@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Study in Fashion Portfolio Checklist</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            background-image:
+                linear-gradient(#20B2AA 1px, transparent 1px),
+                linear-gradient(90deg, #20B2AA 1px, transparent 1px),
+                linear-gradient(#FFB6C1 1px, transparent 1px),
+                linear-gradient(90deg, #FFB6C1 1px, transparent 1px),
+                linear-gradient(rgba(32, 178, 170, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(32, 178, 170, 0.3) 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #20B2AA;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #FF69B4;
+            margin-top: 20px;
+        }
+
+        .requirements-box {
+            background-color: #f9f9f9;
+            border: 2px solid #20B2AA;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .requirements-box h3 {
+            color: #20B2AA;
+            margin-top: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            padding: 10px;
+            border: 2px solid #FFB6C1;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        li.completed {
+            background-color: #20B2AA;
+            color: #ffffff;
+            border-color: #20B2AA;
+        }
+
+        .checklist-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checklist-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checklist-text {
+            flex-grow: 1;
+            padding-right: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #FFB6C1;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: #FF69B4;
+        }
+
+        .example-button {
+            background-color: #20B2AA;
+        }
+
+        .example-button:hover {
+            background-color: #178e8a;
+        }
+
+        .complete-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #20B2AA;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .complete-message.show {
+            display: block;
+        }
+
+        .example-section {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .example-section.show {
+            display: block;
+        }
+
+        .example-image {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .page-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #f0f0f0;
+            border: 2px solid #20B2AA;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tab-button.active {
+            background-color: #20B2AA;
+            color: white;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .help-tip {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .help-tip h4 {
+            margin-top: 0;
+            color: #20B2AA;
+        }
+
+        .help-tip p {
+            margin-bottom: 5px;
+        }
+
+        .help-tip code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to Study in Fashion Portfolio Checklist</h1>
+        
+        <div class="requirements-box">
+            <h3>Portfolio Requirements:</h3>
+            <p><strong>Rotation 1:</strong> 4-8 pages for each unit</p>
+            <p><strong>Rotation 2:</strong> 4-8 pages for each unit (Design, Business, and Media)</p>
+        </div>
+        
+        <div class="page-tabs">
+            <button class="tab-button active" onclick="showPage('basicsPage')">Basic Requirements</button>
+            <button class="tab-button" onclick="showPage('designPage')">Design Unit</button>
+            <button class="tab-button" onclick="showPage('businessPage')">Business Unit</button>
+            <button class="tab-button" onclick="showPage('mediaPage')">Media Unit</button>
+        </div>
+        
+        <!-- Basic Requirements Page -->
+        <div id="basicsPage" class="page active">
+            <h2>Basic Portfolio Requirements</h2>
+            <ul id="basicsChecklist">
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Introduction Page: Have you included a title page that introduces your theme and entices your audience?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Introduction Page Tips:</h4>
+                                <p>• Use a compelling title that reflects your concept</p>
+                                <p>• Include a brief statement about your theme/inspiration</p>
+                                <p>• Add a striking visual element that represents your project</p>
+                                <p>• Keep text minimal but impactful</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Research Range: Have you included both primary and secondary research?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Research Tips:</h4>
+                                <p><strong>Primary Research (your own):</strong></p>
+                                <p>• Your own sketches, photographs, observations</p>
+                                <p>• Interviews or surveys you've conducted</p>
+                                <p>• Museum/gallery/store visits with your photos</p>
+                                <p><strong>Secondary Research (others' work):</strong></p>
+                                <p>• Magazine/website images (with references)</p>
+                                <p>• Designer collections</p>
+                                <p>• Historical research</p>
+                                <p>• Trend forecasting information</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Creative Text Use: Have you used fonts thoughtfully and creatively?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>How to Download Fonts from DaFont.com:</h4>
+                                <p>1. Visit <a href="https://www.dafont.com" target="_blank">dafont.com</a></p>
+                                <p>2. Search for fonts that match your theme</p>
+                                <p>3. Click "Download" button next to your chosen font</p>
+                                <p>4. Extract the ZIP file to your computer</p>
+                                <p>5. For Windows: Right-click the font file → Install</p>
+                                <p>6. For Mac: Double-click the font file → "Install Font"</p>
+                                <p>7. The font will now appear in your design software</p>
+                                <p><strong>Note:</strong> Choose 2-3 fonts maximum for consistency</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Source References: Have you properly referenced all your sources?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Referencing Tips:</h4>
+                                <p>• Include direct references under images</p>
+                                <p>• Format: Photographer/Designer (Year) Title. [Online]. Available at: URL (Accessed: date)</p>
+                                <p>• Example: Smith, J. (2024) Spring Collection. [Online]. Available at: www.example.com (Accessed: 14 July 2025)</p>
+                                <p>• For print sources: Author (Year) Title. Publisher, Place of publication, p.##</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Research-Ideas Connection: Have you shown clear links between your research and your own visual ideas?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Connecting Research to Ideas:</h4>
+                                <p>• Show your research inspiration alongside your designs</p>
+                                <p>• Use annotations to explain influences</p>
+                                <p>• Create side-by-side comparisons</p>
+                                <p>• Use arrows or highlighting to show specific elements you've drawn from</p>
+                                <p>• Create mood boards that visually link to your designs</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Final Product Page: Have you included a page showing your final lineup of ideas?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Final Product Page Tips:</h4>
+                                <p>• Present your best designs/ideas together as a collection</p>
+                                <p>• Keep the layout clean and professional</p>
+                                <p>• Include brief annotations if needed</p>
+                                <p>• Show a cohesive theme connecting all pieces</p>
+                                <p>• Consider showing front/back views of designs</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Subheadings: Have you included subheadings to articulate different aspects of your in-depth research?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Effective Subheading Examples:</h4>
+                                <p>• "Historical Influences: 1920s Art Deco"</p>
+                                <p>• "Color Analysis: Urban Landscapes"</p>
+                                <p>• "Fabric Exploration: Sustainable Materials"</p>
+                                <p>• "Target Market Research"</p>
+                                <p>• "Silhouette Development"</p>
+                                <p>• "Textile Manipulation Techniques"</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Identification: Have you included a page with your name and ID number?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Identification Page Tips:</h4>
+                                <p>• Place at the beginning or end of your portfolio</p>
+                                <p>• Include full name, ID number, and course name</p>
+                                <p>• Keep design consistent with your portfolio theme</p>
+                                <p>• Can be combined with your title page if appropriate</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Unit Labels: Have you included pages stating whether content is for Media, Design, or Business units?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Unit Label Tips:</h4>
+                                <p>• Create clear section dividers</p>
+                                <p>• Label each section (Design/Business/Media)</p>
+                                <p>• Use consistent formatting for all unit labels</p>
+                                <p>• Consider color-coding different units</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Bibliography: Have you included a bibliography with Harvard referencing?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Harvard Referencing Format:</h4>
+                                <p><strong>For Books:</strong><br>
+                                Author, A. (Year) <em>Title</em>. Place of publication: Publisher.</p>
+                                <p><strong>For Journal Articles:</strong><br>
+                                Author, A. (Year) 'Title of article', <em>Journal Title</em>, Volume(Issue), page range.</p>
+                                <p><strong>For Websites:</strong><br>
+                                Author, A. (Year) <em>Title of webpage</em>. Available at: URL (Accessed: date).</p>
+                                <p><strong>For Images:</strong><br>
+                                Creator (Year) <em>Title</em> [Medium]. Available at: URL (Accessed: date).</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div id="basicsCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Basic Requirements checklist! 🎉
+            </div>
+        </div>
+        
+        <!-- Design Unit Page -->
+        <div id="designPage" class="page">
+            <h2>Design Unit Checklist</h2>
+            <ul id="designChecklist">
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Design Inspiration: Have you included a variety of design inspiration sources with proper image references?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Design Inspiration Tips:</h4>
+                                <p>• Include designer collections that relate to your theme</p>
+                                <p>• Show a range of historical and contemporary influences</p>
+                                <p>• Reference each image using Harvard style under the image</p>
+                                <p>• Add brief notes explaining what aspects inspire you</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Design Development: Have you shown progression of your ideas with sketches, iterations, and refinements?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Design Development Tips:</h4>
+                                <p>• Show initial rough sketches</p>
+                                <p>• Include development drawings</p>
+                                <p>• Demonstrate how ideas evolved</p>
+                                <p>• Include both 2D drawings and 3D experiments if possible</p>
+                                <p>• Use arrows or numbering to show progression</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Technical Elements: Have you included relevant technical details (fabric swatches, construction notes, etc.)?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Technical Elements Tips:</h4>
+                                <p>• Include fabric swatches or images if available</p>
+                                <p>• Add construction/technique notes</p>
+                                <p>• Consider including technical drawings</p>
+                                <p>• Note specific design details (collars, pockets, etc.)</p>
+                                <p>• Reference relevant manufacturing processes</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Final Line-up: Have you created a cohesive final collection or design lineup?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Final Line-up Tips:</h4>
+                                <p>• Present your best designs as a collection</p>
+                                <p>• Ensure visual cohesion across designs</p>
+                                <p>• Show front/back views if relevant</p>
+                                <p>• Add brief annotations explaining key features</p>
+                                <p>• Keep presentation clean and professional</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div id="designCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Design Unit checklist! 🎉
+            </div>
+        </div>
+        
+        <!-- Business Unit Page -->
+        <div id="businessPage" class="page">
+            <h2>Business Unit Checklist</h2>
+            <ul id="businessChecklist">
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Market Research: Have you included research on target market, competitors, and industry trends?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Market Research Tips:</h4>
+                                <p>• Define your target customer (age, demographics, lifestyle)</p>
+                                <p>• Analyze competitor brands/products</p>
+                                <p>• Include relevant market statistics</p>
+                                <p>• Research current and upcoming trends</p>
+                                <p>• Use visuals like charts or customer profiles</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Brand Development: Have you explored branding concepts including name, logo, and identity?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Brand Development Tips:</h4>
+                                <p>• Include brand name options and selection process</p>
+                                <p>• Show logo design development</p>
+                                <p>• Define brand values and mission</p>
+                                <p>• Create a brand mood board</p>
+                                <p>• Show packaging or merchandising concepts</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Business Strategy: Have you outlined basic business model, pricing strategy, or marketing approach?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Business Strategy Tips:</h4>
+                                <p>• Outline your basic business model</p>
+                                <p>• Discuss pricing strategy with justification</p>
+                                <p>• Include marketing and promotion ideas</p>
+                                <p>• Consider distribution channels</p>
+                                <p>• Reference relevant business examples</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Sustainability Considerations: Have you addressed ethical or sustainable business practices?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Sustainability Tips:</h4>
+                                <p>• Research sustainable materials or processes</p>
+                                <p>• Consider ethical manufacturing approaches</p>
+                                <p>• Explore circular economy concepts</p>
+                                <p>• Reference brands with good sustainability practices</p>
+                                <p>• Address how your business approach considers sustainability</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div id="businessCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Business Unit checklist! 🎉
+            </div>
+        </div>
+        
+        <!-- Media Unit Page -->
+        <div id="mediaPage" class="page">
+            <h2>Media Unit Checklist</h2>
+            <ul id="mediaChecklist">
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Visual Communication: Have you effectively communicated ideas through visual media?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Visual Communication Tips:</h4>
+                                <p>• Use layout design principles (hierarchy, balance, etc.)</p>
+                                <p>• Ensure text and images work together cohesively</p>
+                                <p>• Consider how color and typography support your message</p>
+                                <p>• Create visual flow to guide the viewer</p>
+                                <p>• Reference effective visual communication examples</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Photography/Illustration: Have you included original photography or illustrations?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Photography/Illustration Tips:</h4>
+                                <p>• Include your own photography or illustrations</p>
+                                <p>• Show development of visual concepts</p>
+                                <p>• Consider composition, lighting, and color</p>
+                                <p>• Experiment with different techniques</p>
+                                <p>• Explain your creative choices</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Digital Media: Have you used digital tools and techniques appropriately?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Digital Media Tips:</h4>
+                                <p>• Use appropriate software for your project (Photoshop, Illustrator, etc.)</p>
+                                <p>• Show development of digital work</p>
+                                <p>• Include digital mockups if relevant</p>
+                                <p>• Consider how digital media enhances your project</p>
+                                <p>• Reference digital techniques used by professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li data-example="">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Media Application: Have you shown how media would be applied in fashion contexts?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="help-tip">
+                                <h4>Media Application Tips:</h4>
+                                <p>• Show how your media would be used (campaigns, lookbooks, social media)</p>
+                                <p>• Create mockups of applications</p>
+                                <p>• Consider how your media connects to your design/business work</p>
+                                <p>• Research examples of effective fashion media</p>
+                                <p>• Include multiple formats if relevant (print, digital, etc.)</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div id="mediaCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Media Unit checklist! 🎉
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function markAsComplete(button) {
+            const listItem = button.closest('li');
+            listItem.classList.add('completed');
+            button.remove();
+
+            // Determine which checklist to check
+            const page = button.closest('.page');
+            checkPageCompleted(page.id);
+        }
+
+        function toggleExample(button) {
+            const listItem = button.closest('li');
+            const exampleSection = listItem.querySelector('.example-section');
+            
+            if (exampleSection.classList.contains('show')) {
+                exampleSection.classList.remove('show');
+            } else {
+                exampleSection.classList.add('show');
+            }
+        }
+
+        function checkPageCompleted(pageId) {
+            let checklistId, messageId;
+            
+            switch(pageId) {
+                case 'basicsPage':
+                    checklistId = 'basicsChecklist';
+                    messageId = 'basicsCompleteMessage';
+                    break;
+                case 'designPage':
+                    checklistId = 'designChecklist';
+                    messageId = 'designCompleteMessage';
+                    break;
+                case 'businessPage':
+                    checklistId = 'businessChecklist';
+                    messageId = 'businessCompleteMessage';
+                    break;
+                case 'mediaPage':
+                    checklistId = 'mediaChecklist';
+                    messageId = 'mediaCompleteMessage';
+                    break;
+            }
+            
+            const allItems = document.querySelectorAll(`#${checklistId} li`);
+            const completedItems = document.querySelectorAll(`#${checklistId} li.completed`);
+
+            if (allItems.length === completedItems.length) {
+                document.getElementById(messageId).classList.add('show');
+            }
+        }
+
+        function showPage(pageId) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Find the button that triggered this and make it active
+            let activeIndex = 0;
+            switch(pageId) {
+                case 'basicsPage': activeIndex = 0; break;
+                case 'designPage': activeIndex = 1; break;
+                case 'businessPage': activeIndex = 2; break;
+                case 'mediaPage': activeIndex = 3; break;
+            }
+            document.querySelectorAll('.tab-button')[activeIndex].classList.add('active');
+            
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
