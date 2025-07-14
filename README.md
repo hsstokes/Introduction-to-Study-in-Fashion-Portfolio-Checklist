@@ -1,1 +1,1 @@
-# ntroduction-to-Study-in-Fashion-Portfolio-Checklist
+# Introduction-to-Study-in-Fashion-Portfolio-Checklist
