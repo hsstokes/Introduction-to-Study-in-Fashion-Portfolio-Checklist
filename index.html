@@ -153,6 +153,7 @@
         .example-tabs {
             display: flex;
             margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
         .example-tab {
@@ -162,6 +163,7 @@
             border-radius: 5px 5px 0 0;
             cursor: pointer;
             margin-right: 5px;
+            margin-bottom: 5px;
         }
 
         .example-tab.active {
@@ -206,11 +208,12 @@
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .tab-button {
             padding: 10px 20px;
-            margin: 0 5px;
+            margin: 0 5px 5px;
             background-color: #f0f0f0;
             border: 2px solid #20B2AA;
             border-radius: 5px 5px 0 0;
@@ -251,6 +254,54 @@
             color: #666;
             margin-top: 5px;
         }
+
+        .unit-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .unit-example {
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .unit-example h4 {
+            margin-top: 0;
+            color: #20B2AA;
+            text-align: center;
+        }
+
+        .category-header {
+            background-color: #FFE4E1;
+            padding: 10px;
+            margin: 20px 0 10px;
+            border-radius: 5px;
+            border-left: 5px solid #FF69B4;
+        }
+
+        @media (max-width: 600px) {
+            .checklist-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .button-group {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .tab-button {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -266,20 +317,20 @@
         </div>
         
         <div class="page-tabs">
-            <button class="tab-button active" onclick="showPage('basicsPage')">Basic Requirements</button>
-            <button class="tab-button" onclick="showPage('designPage')">Design Unit</button>
-            <button class="tab-button" onclick="showPage('businessPage')">Business Unit</button>
-            <button class="tab-button" onclick="showPage('mediaPage')">Media Unit</button>
+            <button class="tab-button active" onclick="showPage('portfolioStructurePage')">Portfolio Structure</button>
+            <button class="tab-button" onclick="showPage('researchPage')">Research Elements</button>
+            <button class="tab-button" onclick="showPage('developmentPage')">Development</button>
+            <button class="tab-button" onclick="showPage('finalOutcomePage')">Final Outcomes</button>
         </div>
         
-        <!-- Basic Requirements Page -->
-        <div id="basicsPage" class="page active">
-            <h2>Basic Portfolio Requirements</h2>
-            <ul id="basicsChecklist">
+        <!-- Portfolio Structure Page -->
+        <div id="portfolioStructurePage" class="page active">
+            <h2>Portfolio Structure Essentials</h2>
+            <ul id="structureChecklist">
                 <li data-example="images/basics_intro_page.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Introduction Page: Have you included a title page that introduces your theme and entices your audience?</span>
+                            <span class="checklist-text">Introduction Pages: Have you included title pages for each unit with your name, ID, and class?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -287,68 +338,46 @@
                         </div>
                         <div class="example-section">
                             <div class="example-tabs">
-                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
+                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Design Unit</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'business')">Business Unit</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'media')">Media Unit</div>
                                 <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
                             </div>
                             
                             <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/basics_intro_page.jpg" alt="Example of a good introduction page">
+                                <img class="example-image" src="images/basics_intro_page.jpg" alt="Example of a good design introduction page">
                                 <div class="file-upload">
-                                    <label for="upload-intro">Reference: songtham setthasit </label>
-                                    <input type="file" id="upload-intro" accept="image/*" onchange="previewImage(this)">
+                                    <label for="upload-intro-design">Design Introduction Example (Reference: songtham setthasit)</label>
+                                    <input type="file" id="upload-intro-design" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="business">
+                                <img class="example-image" src="images/business_intro_page.jpg" alt="Example of a good business introduction page">
+                                <div class="file-upload">
+                                    <label for="upload-intro-business">Business Introduction Example (Reference: Alis Jankelevitsh)</label>
+                                    <input type="file" id="upload-intro-business" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="media">
+                                <img class="example-image" src="images/media_intro_page.jpg" alt="Example of a good media introduction page">
+                                <div class="file-upload">
+                                    <label for="upload-intro-media">Media Introduction Example (Reference: Nay(Jialing Yuan))</label>
+                                    <input type="file" id="upload-intro-media" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
                             
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
                                     <h4>Introduction Page Tips:</h4>
-                                    <p>• Use a compelling title that reflects your concept</p>
-                                    <p>• Include a brief statement about your theme/inspiration</p>
-                                    <p>• Add a striking visual element that represents your project</p>
-                                    <p>• Keep text minimal but impactful</p>
-                                    <p>• Use a font that complements your theme</p>
-                                    <p>• Consider the layout carefully - make it eye-catching</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                
-                <li data-example="images/basics_research_range.jpg">
-                    <div class="checklist-item">
-                        <div class="checklist-top">
-                            <span class="checklist-text">Research Range: Have you included both primary and secondary research?</span>
-                            <div class="button-group">
-                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
-                                <button onclick="markAsComplete(this)">Complete</button>
-                            </div>
-                        </div>
-                        <div class="example-section">
-                            <div class="example-tabs">
-                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
-                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
-                            </div>
-                            
-                            <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/basics_research_range.jpg" alt="Example of good research range">
-                                <div class="file-upload">
-                                    <label for="upload-research">Reference: SiYing(Jenny)Lu </label>
-                                    <input type="file" id="upload-research" accept="image/*" onchange="previewImage(this)">
-                                </div>
-                            </div>
-                            
-                            <div class="example-content" data-content="tips">
-                                <div class="help-tip">
-                                    <h4>Research Tips:</h4>
-                                    <p><strong>Primary Research (your own):</strong></p>
-                                    <p>• Your own sketches, photographs, observations</p>
-                                    <p>• Interviews or surveys you've conducted</p>
-                                    <p>• Museum/gallery/store visits with your photos</p>
-                                    <p><strong>Secondary Research (others' work):</strong></p>
-                                    <p>• Magazine/website images (with references)</p>
-                                    <p>• Designer/Artist collections/Research</p>
-                                    <p>• Historical research</p>
-                                    <p>• Trend forecasting information</p>
+                                    <p>• Each unit needs its own title page with:</p>
+                                    <p>- Your full name and student ID</p>
+                                    <p>- Class/group (e.g., 8A)</p>
+                                    <p>- Unit title (Design, Business, or Media)</p>
+                                    <p>• Use a visual that relates to your theme for that unit</p>
+                                    <p>• Keep text minimal but make the title impactful</p>
+                                    <p>• Use fonts that complement your theme</p>
                                 </div>
                             </div>
                         </div>
@@ -358,7 +387,7 @@
                 <li data-example="images/basics_creative_text.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Creative Text Use: Have you used fonts thoughtfully and creatively?</span>
+                            <span class="checklist-text">Visual Consistency: Have you maintained consistent fonts, colors, and layout style across your portfolio?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -367,18 +396,19 @@
                         <div class="example-section">
                             <div class="example-tabs">
                                 <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'fonts')">Font Selection</div>
                                 <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
                             </div>
                             
                             <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/basics_creative_text.jpg" alt="Example of creative text use">
+                                <img class="example-image" src="images/basics_creative_text.jpg" alt="Example of consistent visual design">
                                 <div class="file-upload">
-                                    <label for="upload-text">Reference: Pritika Ahuja:</label>
-                                    <input type="file" id="upload-text" accept="image/*" onchange="previewImage(this)">
+                                    <label for="upload-consistency">Reference: Pritika Ahuja</label>
+                                    <input type="file" id="upload-consistency" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
                             
-                            <div class="example-content" data-content="tips">
+                            <div class="example-content" data-content="fonts">
                                 <div class="help-tip">
                                     <h4>How to Download Fonts from DaFont.com:</h4>
                                     <p>1. Visit <a href="https://www.dafont.com" target="_blank">dafont.com</a></p>
@@ -388,7 +418,19 @@
                                     <p>5. For Windows: Right-click the font file → Install</p>
                                     <p>6. For Mac: Double-click the font file → "Install Font"</p>
                                     <p>7. The font will now appear in your design software</p>
-                                    <p><strong>Note:</strong> Do not use any Chalkboard based font </p>
+                                    <p><strong>Note:</strong> Do not use any Chalkboard based font</p>
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Visual Consistency Tips:</h4>
+                                    <p>• Choose 2-3 fonts maximum (one for headings, one for body text)</p>
+                                    <p>• Select a consistent color palette that relates to your theme</p>
+                                    <p>• Use the same layout grid structure throughout</p>
+                                    <p>• Maintain consistent spacing between elements</p>
+                                    <p>• Use similar photo treatments or filters across images</p>
+                                    <p>• Keep page numbering and header/footer styles consistent</p>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +440,7 @@
                 <li data-example="images/basics_source_references.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Source References: Have you properly referenced all your sources?</span>
+                            <span class="checklist-text">Source References: Have you properly referenced all images and information using Harvard referencing?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -407,13 +449,13 @@
                         <div class="example-section">
                             <div class="example-tabs">
                                 <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
-                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Referencing Guide</div>
                             </div>
                             
                             <div class="example-content active" data-content="example">
                                 <img class="example-image" src="images/basics_source_references.jpg" alt="Example of good source referencing">
                                 <div class="file-upload">
-                                    <label for="upload-references">Reference: Pritika Ahuja </label>
+                                    <label for="upload-references">Reference: Pritika Ahuja</label>
                                     <input type="file" id="upload-references" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
@@ -421,20 +463,160 @@
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
                                     <h4>Referencing Tips:</h4>
-                                    <p>• Include direct references under images or for links include this within your bibliography</p>
-                                    <p>• Format: Artist/Designer (Year) Title</p>
+                                    <p>• Include direct references under each image</p>
+                                    <p>• Image format: Designer/Photographer (Year) Title</p>
+                                    <p>• Website format: Author (Year) 'Title of page', Website name. Available at: URL (Accessed: date)</p>
+                                    <p>• Book format: Author (Year) Title. Publisher, Place of publication, p.##</p>
                                     <p>• <strong>Harvard Referencing Guide:</strong> <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">https://hsstokes.github.io/Harvard-Referencing-Guide/</a></p>
-                                    <p>• For print sources: Author (Year) Title. Publisher, Place of publication, p.##</p>
+                                    <p>• Include a full bibliography as the last page of your portfolio</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                
+            </ul>
+            
+            <div id="structureCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Portfolio Structure checklist! 🎉
+            </div>
+        </div>
+        
+        <!-- Research Elements Page -->
+        <div id="researchPage" class="page">
+            <h2>Research Elements</h2>
+            
+            <div class="category-header">
+                <h3>Primary Research</h3>
+            </div>
+            
+            <ul id="primaryResearchChecklist">
+                <li data-example="images/primary_research.jpg">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Primary Research: Have you included your own photographs, sketches, or observations?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'design')">Design Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'business')">Business Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'media')">Media Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="design">
+                                <img class="example-image" src="images/primary_research_design.jpg" alt="Example of primary research for design">
+                                <div class="file-upload">
+                                    <label for="upload-primary-design">Design Primary Research Example</label>
+                                    <input type="file" id="upload-primary-design" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="business">
+                                <img class="example-image" src="images/primary_research_business.jpg" alt="Example of primary research for business">
+                                <div class="file-upload">
+                                    <label for="upload-primary-business">Business Primary Research Example</label>
+                                    <input type="file" id="upload-primary-business" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="media">
+                                <img class="example-image" src="images/primary_research_media.jpg" alt="Example of primary research for media">
+                                <div class="file-upload">
+                                    <label for="upload-primary-media">Media Primary Research Example</label>
+                                    <input type="file" id="upload-primary-media" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Primary Research Ideas:</h4>
+                                    <p><strong>Design:</strong> Your own sketches, photographs of textures/patterns, museum visits</p>
+                                    <p><strong>Business:</strong> Surveys, interviews, store visits, competitive analysis</p>
+                                    <p><strong>Media:</strong> Photography experiments, typography studies, layout tests</p>
+                                    <p>• Always annotate primary research to explain what you observed</p>
+                                    <p>• Connect primary research to your theme/concept</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="category-header">
+                <h3>Secondary Research</h3>
+            </div>
+            
+            <ul id="secondaryResearchChecklist">
+                <li data-example="images/secondary_research.jpg">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Secondary Research: Have you included a variety of sources with proper references?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'design')">Design Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'business')">Business Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'media')">Media Examples</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="design">
+                                <img class="example-image" src="images/design_inspiration.jpg" alt="Example of secondary research for design">
+                                <div class="file-upload">
+                                    <label for="upload-secondary-design">Design Secondary Research Example (Reference: Loulanky Xia)</label>
+                                    <input type="file" id="upload-secondary-design" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="business">
+                                <img class="example-image" src="images/business_market_research.jpg" alt="Example of secondary research for business">
+                                <div class="file-upload">
+                                    <label for="upload-secondary-business">Business Secondary Research Example (Reference: Alis Jankelevitsh)</label>
+                                    <input type="file" id="upload-secondary-business" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="media">
+                                <img class="example-image" src="images/media_visual_communication.jpg" alt="Example of secondary research for media">
+                                <div class="file-upload">
+                                    <label for="upload-secondary-media">Media Secondary Research Example (Reference: Nay(Jialing Yuan))</label>
+                                    <input type="file" id="upload-secondary-media" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Secondary Research Tips:</h4>
+                                    <p><strong>Design:</strong> Designer collections, historical fashion, art movements, textiles</p>
+                                    <p><strong>Business:</strong> Market trends, competitor analysis, demographics, industry statistics</p>
+                                    <p><strong>Media:</strong> Typography examples, advertising campaigns, fashion photography, layout design</p>
+                                    <p>• Always cite sources using Harvard referencing</p>
+                                    <p>• Explain why each piece of research is relevant to your project</p>
+                                    <p>• Use a variety of sources (books, websites, magazines, journals)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="category-header">
+                <h3>Research Connection</h3>
+            </div>
+            
+            <ul id="researchConnectionChecklist">
                 <li data-example="images/basics_research_connections.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Research-Ideas Connection: Have you shown clear links between your research and your own visual ideas?</span>
+                            <span class="checklist-text">Research-Ideas Connection: Have you shown clear links between your research and your own ideas?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -449,7 +631,7 @@
                             <div class="example-content active" data-content="example">
                                 <img class="example-image" src="images/basics_research_connections.jpg" alt="Example of research-ideas connection">
                                 <div class="file-upload">
-                                    <label for="upload-connections">Reference: songtham setthasit:</label>
+                                    <label for="upload-connections">Reference: songtham setthasit</label>
                                     <input type="file" id="upload-connections" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
@@ -457,87 +639,36 @@
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
                                     <h4>Connecting Research to Ideas:</h4>
-                                    <p>• Show your research inspiration alongside primary investigations</p>
-                                    <p>• Use annotations to explain influences</p>
-                                    <p>• Use creative methods to highlight specific research you've drawn inspiration from</p>
-                                    <p>• Show clearly how visual ideas link</p>
+                                    <p>• Show your research inspiration alongside your own work</p>
+                                    <p>• Use arrows, highlighting, or other visual cues to connect related elements</p>
+                                    <p>• Add annotations explaining how specific research influenced your ideas</p>
+                                    <p>• Create side-by-side comparisons showing the progression from research to concept</p>
+                                    <p>• Include a mixture of written explanation and visual connections</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>             
-<li data-example="images/basics_product_outcome.jpg">
-    <div class="checklist-item">
-        <div class="checklist-top">
-            <span class="checklist-text">Product Outcome: Have you included clear visuals of your final product that connect to your research?</span>
-            <div class="button-group">
-                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
-                <button onclick="markAsComplete(this)">Complete</button>
-            </div>
-        </div>
-        <div class="example-section">
-            <div class="example-tabs">
-                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
-                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
-                <div class="example-tab" onclick="showExampleTab(this, 'uploads')">Upload Examples</div>
-            </div>
-            
-            <div class="example-content active" data-content="example">
-                <img class="example-image" src="images/basics_product_outcome.jpg" alt="Example of product outcome">
-                <div class="file-upload">
-                    <label for="upload-product">Reference: SiYing(Jenny)Lu </label>
-                    <input type="file" id="upload-product" accept="image/*" onchange="previewImage(this)">
-                </div>
-            </div>
-            
-            <div class="example-content" data-content="tips">
-                <div class="help-tip">
-                    <h4>Product Outcome Tips:</h4>
-                    <p>• Present your final design/product with high-quality visuals</p>
-                    <p>• Show a clear visual connection between your research and final outcome</p>
-                    <p>• Minimal text is fine - let the visuals communicate your ideas on this page</p>
-                    <p>• Consider using a clean layout that highlights your product but feel free to include graphic elements</p>
-                </div>
-            </div>
-            
-            <div class="example-content" data-content="uploads">
-    <div class="help-tip">
-        <h4>Upload Your Examples:</h4>
-        <p>Upload examples specific to each unit:</p>
-    </div>
-    <div class="file-upload">
-        <label for="upload-product-design">Design Product Example:</label>
-        <img class="example-image" src="images/basics_product_outcome_design.jpg" alt="Example of design product outcome">
-        <input type="file" id="upload-product-design" accept="image/*" onchange="previewImage(this)">
-    </div>
-    <div class="file-upload">
-        <label for="upload-product-business">Business Product Example:</label>
-        <img class="example-image" src="images/basics_product_outcome_business.jpg" alt="Example of business product outcome">
-        <input type="file" id="upload-product-business" accept="image/*" onchange="previewImage(this)">
-    </div>
-    <div class="file-upload">
-        <label for="upload-product-media">Media Product Example:</label>
-        <img class="example-image" src="images/basics_product_outcome_media.jpg" alt="Example of media product outcome">
-        <input type="file" id="upload-product-media" accept="image/*" onchange="previewImage(this)">
-    </div>
-</div>
-</li>
+                </li>
             </ul>
             
-            <div id="basicsCompleteMessage" class="complete-message">
-                🎉 Great job! You've completed the Basic Requirements checklist! 🎉
+            <div id="researchCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Research Elements checklist! 🎉
             </div>
         </div>
         
-        <!-- Design Unit Page -->
-        <div id="designPage" class="page">
-            <h2>Design Unit Checklist</h2>
-            <ul id="designChecklist">
-                <!-- Design unit checklist items would follow the same pattern -->
-                <li data-example="images/design_inspiration.jpg">
+        <!-- Development Page -->
+        <div id="developmentPage" class="page">
+            <h2>Development Process</h2>
+            
+            <div class="category-header">
+                <h3>Design Development</h3>
+            </div>
+            
+            <ul id="designDevelopmentChecklist">
+                <li data-example="images/design_development.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Design Inspiration: Have you included a variety of design inspiration sources with proper image references?</span>
+                            <span class="checklist-text">Design Development: Have you shown the evolution of your design ideas?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -550,20 +681,21 @@
                             </div>
                             
                             <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/design_inspiration.jpg" alt="Example of design inspiration">
+                                <img class="example-image" src="images/design_development.jpg" alt="Example of design development">
                                 <div class="file-upload">
-                                    <label for="upload-design-inspiration">Reference: Loulanky Xia  </label>
-                                    <input type="file" id="upload-design-inspiration" accept="image/*" onchange="previewImage(this)">
+                                    <label for="upload-design-dev">Reference: Design Development Example</label>
+                                    <input type="file" id="upload-design-dev" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
                             
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
-                                    <h4>Design Inspiration Tips:</h4>
-                                    <p>• Include Designer/Artist research that relate's to your theme</p>
-                                    <p>• If relevant, show a range of historical, scientific, and contemporary influences to expand and diversify research</p>
-                                    <p>• Reference each image using Harvard style under the image</p>
-                                    <p>• Add knowlege on your subject through relevant annotated notes</p>
+                                    <h4>Design Development Tips:</h4>
+                                    <p>• Show progression from initial sketches to refined designs</p>
+                                    <p>• Include iterations and alternatives that were considered</p>
+                                    <p>• Explain design decisions and why certain elements were kept or changed</p>
+                                    <p>• Show material/fabric/color experimentation</p>
+                                    <p>• Demonstrate how you incorporated feedback or addressed challenges</p>
                                 </div>
                             </div>
                         </div>
@@ -571,20 +703,15 @@
                 </li>
             </ul>
             
-            <div id="designCompleteMessage" class="complete-message">
-                🎉 Great job! You've completed the Design Unit checklist! 🎉
+            <div class="category-header">
+                <h3>Business Development</h3>
             </div>
-        </div>
-        
-        <!-- Business Unit Page -->
-        <div id="businessPage" class="page">
-            <h2>Business Unit Checklist</h2>
-            <ul id="businessChecklist">
-                <!-- Business unit checklist items would follow the same pattern -->
-                <li data-example="images/business_market_research.jpg">
+            
+            <ul id="businessDevelopmentChecklist">
+                <li data-example="images/business_development.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Market Research: Have you included research on a target market, competitors, and industry trends?</span>
+                            <span class="checklist-text">Business Development: Have you developed a clear business concept with target market?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -597,20 +724,22 @@
                             </div>
                             
                             <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/business_market_research.jpg" alt="Example of market research">
+                                <img class="example-image" src="images/business_development.jpg" alt="Example of business development">
                                 <div class="file-upload">
-                                    <label for="upload-market-research">Reference: Alis Jankelevitsh</label>
-                                    <input type="file" id="upload-market-research" accept="image/*" onchange="previewImage(this)">
+                                    <label for="upload-business-dev">Reference: Business Development Example</label>
+                                    <input type="file" id="upload-business-dev" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
                             
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
-                                    <h4>Market Research Tips:</h4>
-                                    <p>• Define your target customer (age, demographics, lifestyle)</p>
-                                    <p>• Analyze competitor brands/products</p>
-                                    <p>• Include relevant market statistics and use visuals such as charts, questionnaires, and graphs</p>
-                                    <p>• Research current and upcoming trends</p>
+                                    <h4>Business Development Tips:</h4>
+                                    <p>• Define your target customer with demographics and lifestyle</p>
+                                    <p>• Create customer profiles or personas</p>
+                                    <p>• Develop marketing concepts that appeal to your target market</p>
+                                    <p>• Outline pricing strategy and position in the market</p>
+                                    <p>• Consider sustainability and ethical aspects of your business</p>
+                                    <p>• Show how your business responds to identified market gaps or trends</p>
                                 </div>
                             </div>
                         </div>
@@ -618,20 +747,15 @@
                 </li>
             </ul>
             
-            <div id="businessCompleteMessage" class="complete-message">
-                🎉 Great job! You've completed the Business Unit checklist! 🎉
+            <div class="category-header">
+                <h3>Media Development</h3>
             </div>
-        </div>
-        
-        <!-- Media Unit Page -->
-        <div id="mediaPage" class="page">
-            <h2>Media Unit Checklist</h2>
-            <ul id="mediaChecklist">
-                <!-- Media unit checklist items would follow the same pattern -->
-                <li data-example="images/media_visual_communication.jpg">
+            
+            <ul id="mediaDevelopmentChecklist">
+                <li data-example="images/media_development.jpg">
                     <div class="checklist-item">
                         <div class="checklist-top">
-                            <span class="checklist-text">Visual Communication: Have you effectively communicated ideas through visual media?</span>
+                            <span class="checklist-text">Media Development: Have you explored different visual communication approaches?</span>
                             <div class="button-group">
                                 <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
                                 <button onclick="markAsComplete(this)">Complete</button>
@@ -644,21 +768,22 @@
                             </div>
                             
                             <div class="example-content active" data-content="example">
-                                <img class="example-image" src="images/media_visual_communication.jpg" alt="Example of visual communication">
+                                <img class="example-image" src="images/media_development.jpg" alt="Example of media development">
                                 <div class="file-upload">
-                                    <label for="upload-visual-comm">Reference: Nay(Jialing Yuan)</label>
-                                    <input type="file" id="upload-visual-comm" accept="image/*" onchange="previewImage(this)">
+                                    <label for="upload-media-dev">Reference: Media Development Example</label>
+                                    <input type="file" id="upload-media-dev" accept="image/*" onchange="previewImage(this)">
                                 </div>
                             </div>
                             
                             <div class="example-content" data-content="tips">
                                 <div class="help-tip">
-                                    <h4>Visual Communication Tips:</h4>
-                                    <p>• Use layout design principles (hierarchy, balance, etc.)</p>
-                                    <p>• Ensure text and images work together cohesively and is consistent throughout</p>
-                                    <p>• Consider how colour and typography support your message and theme</p>
-                                    <p>• Create visual flow to guide the viewer</p>
-                                    <p>• Reference secondary research examples</p>
+                                    <h4>Media Development Tips:</h4>
+                                    <p>• Experiment with different typography, layouts, and color schemes</p>
+                                    <p>• Show progression of ideas from rough to refined</p>
+                                    <p>• Include different approaches to photography or illustration</p>
+                                    <p>• Demonstrate application of design principles (balance, contrast, etc.)</p>
+                                    <p>• Explain how your visual choices support your message/brand</p>
+                                    <p>• Show digital and print media development if applicable</p>
                                 </div>
                             </div>
                         </div>
@@ -666,8 +791,185 @@
                 </li>
             </ul>
             
-            <div id="mediaCompleteMessage" class="complete-message">
-                🎉 Great job! You've completed the Media Unit checklist! 🎉
+            <div id="developmentCompleteMessage" class="complete-message">
+                🎉 Great job! You've completed the Development Process checklist! 🎉
+            </div>
+        </div>
+        
+        <!-- Final Outcomes Page -->
+        <div id="finalOutcomePage" class="page">
+            <h2>Final Outcomes</h2>
+            
+            <div class="category-header">
+                <h3>Design Outcome</h3>
+            </div>
+            
+            <ul id="designOutcomeChecklist">
+                <li data-example="images/basics_product_outcome_design.jpg">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Design Outcome: Have you presented your final design with high-quality visuals?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="example">
+                                <img class="example-image" src="images/basics_product_outcome_design.jpg" alt="Example of design outcome">
+                                <div class="file-upload">
+                                    <label for="upload-design-outcome">Reference: Design Outcome Example</label>
+                                    <input type="file" id="upload-design-outcome" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Design Outcome Tips:</h4>
+                                    <p>• Present final design with clear, high-quality images</p>
+                                    <p>• Show different views/angles of your design</p>
+                                    <p>• Include close-up details of important elements</p>
+                                    <p>• Provide brief explanations of key features</p>
+                                    <p>• Consider using model photos or fashion illustrations</p>
+                                    <p>• Show material/fabric swatches if applicable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="category-header">
+                <h3>Business Outcome</h3>
+            </div>
+            
+            <ul id="businessOutcomeChecklist">
+                <li data-example="images/basics_product_outcome_business.jpg">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Business Outcome: Have you presented your final business concept clearly?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="example">
+                                <img class="example-image" src="images/basics_product_outcome_business.jpg" alt="Example of business outcome">
+                                <div class="file-upload">
+                                    <label for="upload-business-outcome">Reference: Business Outcome Example</label>
+                                    <input type="file" id="upload-business-outcome" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Business Outcome Tips:</h4>
+                                    <p>• Clearly present your brand name and logo</p>
+                                    <p>• Summarize your business concept concisely</p>
+                                    <p>• Showcase your target customer</p>
+                                    <p>• Include final marketing materials (social media, advertisements)</p>
+                                    <p>• Present pricing strategy if applicable</p>
+                                    <p>• Show how your business addresses identified market needs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="category-header">
+                <h3>Media Outcome</h3>
+            </div>
+            
+            <ul id="mediaOutcomeChecklist">
+                <li data-example="images/basics_product_outcome_media.jpg">
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Media Outcome: Have you presented your final media materials effectively?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Examples & Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'example')">Visual Example</div>
+                                <div class="example-tab" onclick="showExampleTab(this, 'tips')">Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="example">
+                                <img class="example-image" src="images/basics_product_outcome_media.jpg" alt="Example of media outcome">
+                                <div class="file-upload">
+                                    <label for="upload-media-outcome">Reference: Media Outcome Example</label>
+                                    <input type="file" id="upload-media-outcome" accept="image/*" onchange="previewImage(this)">
+                                </div>
+                            </div>
+                            
+                            <div class="example-content" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>Media Outcome Tips:</h4>
+                                    <p>• Present final media materials in context (mockups of websites, social media, etc.)</p>
+                                    <p>• Show how your visual communication elements work together</p>
+                                    <p>• Include final photography or illustrations</p>
+                                    <p>• Demonstrate consistent visual identity across different media</p>
+                                    <p>• Explain how your media choices support your message/brand</p>
+                                    <p>• Consider showing both digital and print outcomes if applicable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="category-header">
+                <h3>Final Portfolio Submission</h3>
+            </div>
+            
+            <ul id="submissionChecklist">
+                <li>
+                    <div class="checklist-item">
+                        <div class="checklist-top">
+                            <span class="checklist-text">Final Check: Have you combined all units into a single PDF under 100MB?</span>
+                            <div class="button-group">
+                                <button class="example-button" onclick="toggleExample(this)">Tips</button>
+                                <button onclick="markAsComplete(this)">Complete</button>
+                            </div>
+                        </div>
+                        <div class="example-section">
+                            <div class="example-tabs">
+                                <div class="example-tab active" onclick="showExampleTab(this, 'tips')">PDF Tips</div>
+                            </div>
+                            
+                            <div class="example-content active" data-content="tips">
+                                <div class="help-tip">
+                                    <h4>PDF Submission Tips:</h4>
+                                    <p>• Ensure all pages are in the correct order</p>
+                                    <p>• Check that all text is readable and images are clear</p>
+                                    <p>• Verify that all units are included with their title pages</p>
+                                    <p>• Make sure file size is under 100MB (compress images if needed)</p>
+                                    <p>• Double-check that all references are included</p>
+                                    <p>• Save as a single PDF file</p>
+                                    <p>• Name your file: LastName_FirstName_StudentID.pdf</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div id="outcomeCompleteMessage" class="complete-message">
+                🎉 Congratulations! You've completed the Final Outcomes checklist! Your portfolio is ready for submission! 🎉
             </div>
         </div>
     </div>
@@ -736,31 +1038,38 @@
         }
 
         function checkPageCompleted(pageId) {
-            let checklistId, messageId;
+            let checklistIds = [], messageId;
             
             switch(pageId) {
-                case 'basicsPage':
-                    checklistId = 'basicsChecklist';
-                    messageId = 'basicsCompleteMessage';
+                case 'portfolioStructurePage':
+                    checklistIds = ['structureChecklist'];
+                    messageId = 'structureCompleteMessage';
                     break;
-                case 'designPage':
-                    checklistId = 'designChecklist';
-                    messageId = 'designCompleteMessage';
+                case 'researchPage':
+                    checklistIds = ['primaryResearchChecklist', 'secondaryResearchChecklist', 'researchConnectionChecklist'];
+                    messageId = 'researchCompleteMessage';
                     break;
-                case 'businessPage':
-                    checklistId = 'businessChecklist';
-                    messageId = 'businessCompleteMessage';
+                case 'developmentPage':
+                    checklistIds = ['designDevelopmentChecklist', 'businessDevelopmentChecklist', 'mediaDevelopmentChecklist'];
+                    messageId = 'developmentCompleteMessage';
                     break;
-                case 'mediaPage':
-                    checklistId = 'mediaChecklist';
-                    messageId = 'mediaCompleteMessage';
+                case 'finalOutcomePage':
+                    checklistIds = ['designOutcomeChecklist', 'businessOutcomeChecklist', 'mediaOutcomeChecklist', 'submissionChecklist'];
+                    messageId = 'outcomeCompleteMessage';
                     break;
             }
             
-            const allItems = document.querySelectorAll(`#${checklistId} li`);
-            const completedItems = document.querySelectorAll(`#${checklistId} li.completed`);
+            let totalItems = 0;
+            let completedItems = 0;
+            
+            checklistIds.forEach(id => {
+                const items = document.querySelectorAll(`#${id} li`);
+                const completed = document.querySelectorAll(`#${id} li.completed`);
+                totalItems += items.length;
+                completedItems += completed.length;
+            });
 
-            if (allItems.length === completedItems.length) {
+            if (totalItems > 0 && totalItems === completedItems) {
                 document.getElementById(messageId).classList.add('show');
             }
         }
@@ -774,10 +1083,10 @@
             // Find the button that triggered this and make it active
             let activeIndex = 0;
             switch(pageId) {
-                case 'basicsPage': activeIndex = 0; break;
-                case 'designPage': activeIndex = 1; break;
-                case 'businessPage': activeIndex = 2; break;
-                case 'mediaPage': activeIndex = 3; break;
+                case 'portfolioStructurePage': activeIndex = 0; break;
+                case 'researchPage': activeIndex = 1; break;
+                case 'developmentPage': activeIndex = 2; break;
+                case 'finalOutcomePage': activeIndex = 3; break;
             }
             document.querySelectorAll('.tab-button')[activeIndex].classList.add('active');
             
